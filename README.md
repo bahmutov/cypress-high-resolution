@@ -68,6 +68,8 @@ Or a high resolution
 }
 ```
 
+**Tip:** when increasing the browser window size, it might make sense to increase the viewport used by the Cypress to use those pixels!
+
 ## Debugging
 
 This plugin uses [debug](https://github.com/visionmedia/debug#readme) module to output verbose messages. Start Cypress with the environment variable `DEBUG=cypress-high-resolution` to see them. How to set an environment variable depends on the operating system. From a Linux terminal we can use

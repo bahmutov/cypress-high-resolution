@@ -11,8 +11,7 @@ jobs:
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v2
         with:
-          # check types
-          build: npm run lint
+          env: resolution=high
 
       - name: Semantic Release 🚀
         uses: cycjimmy/semantic-release-action@v2
