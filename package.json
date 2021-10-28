@@ -2,9 +2,12 @@
   "name": "cypress-high-resolution",
   "version": "1.0.0",
   "description": "A plugin to increase the video resolution for cypress run",
-  "main": "index.js",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "DEBUG=cypress-high-resolution cypress run"
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,8 @@
   "devDependencies": {
     "cypress": "^8.7.0",
     "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "debug": "^4.3.2"
   }
 }

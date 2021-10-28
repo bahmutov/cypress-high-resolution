@@ -1,0 +1,7 @@
+{
+  "fixturesFolder": false,
+  "supportFile": false,
+  "baseUrl": "https://www.wikipedia.org/",
+  "viewportWidth": 1440,
+  "viewportHeight": 1200
+}
