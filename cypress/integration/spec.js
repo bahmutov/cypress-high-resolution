@@ -7,5 +7,5 @@ it('works', () => {
   cy.log(`browser window is: **${windowWidth} x ${windowHeight}**`)
   cy.visit('/')
   cy.get('#searchInput').should('be.visible')
-  cy.screenshot('wiki').wait(1000)
+  cy.screenshot('wiki', { capture: 'runner' }).wait(2000)
 })
