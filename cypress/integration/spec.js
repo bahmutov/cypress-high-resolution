@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
 
 it('works', () => {
-  cy.visit('/')
+  cy.visit('/').wait(2000)
 })

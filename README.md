@@ -26,6 +26,48 @@ module.exports = (on, config) => {
 
 ## Use
 
+When using non-interactive mode `cypress run`, you can specify the browser window size using the [Cypress environment variables](https://on.cypress.io/environment-variables) which can be passed via system OS environment variables, via `cypress.json` config file, via `cypress.env.json` file, or via command line arguments. For example, here is how to specify the video resolution using the command line arguments:
+
+```
+# generate ultra-high resolution 3840x2160 videos
+$ npx cypress run --env resolution=4k
+# generate videos 1200x1000
+$ npx cypress run --env resolution=1200x1000
+# alternative way: use an array
+$ npx cypress run --env resolution=[1200,1000]
+# generate high resolution video 1920x1080
+$ npx cypress run --env resolution=high
+```
+
+Specifying the output resolution using the system OS variables
+
+```
+# 1920x1080 videos
+CYPRESS_resolution=high npx cypress run
+# small videos
+CYPRESS_resolution=600x300 npx cypress run
+```
+
+You can set the video resolution in the `cypress.json` file
+
+```json
+{
+  "env": {
+    "resolution": [1280, 720]
+  }
+}
+```
+
+Or a high resolution
+
+```json
+{
+  "env": {
+    "resolution": "high"
+  }
+}
+```
+
 ## Debugging
 
 This plugin uses [debug](https://github.com/visionmedia/debug#readme) module to output verbose messages. Start Cypress with the environment variable `DEBUG=cypress-high-resolution` to see them. How to set an environment variable depends on the operating system. From a Linux terminal we can use
