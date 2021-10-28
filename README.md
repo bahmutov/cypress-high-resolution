@@ -78,6 +78,10 @@ This plugin uses [debug](https://github.com/visionmedia/debug#readme) module to 
 $ DEBUG=cypress-high-resolution npx cypress run
 ```
 
+## See also
+
+- [Make Cypress Videos Look Old School](https://www.cypress.io/blog/2021/04/01/make-cypress-videos-look-old-school/)
+
 ## Small print
 
 Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021

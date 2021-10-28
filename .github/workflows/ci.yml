@@ -11,6 +11,8 @@ jobs:
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v2
         with:
+          record: true
+          tag: '1. Resolution is high'
           env: resolution=high
 
       - name: Semantic Release 🚀
