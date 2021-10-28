@@ -25,6 +25,8 @@ jobs:
           record: true
           group: '2. Resolution is 4k'
           env: resolution=4k
+          # increase the viewport to capture more details
+          config: viewportWidth=2000,viewportHeight=2000
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
