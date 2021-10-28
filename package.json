@@ -1,0 +1,27 @@
+{
+  "name": "cypress-high-resolution",
+  "version": "1.0.0",
+  "description": "A plugin to increase the video resolution for cypress run",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/cypress-high-resolution.git"
+  },
+  "keywords": [
+    "cypress-plugin",
+    "video"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/cypress-high-resolution/issues"
+  },
+  "homepage": "https://github.com/bahmutov/cypress-high-resolution#readme",
+  "devDependencies": {
+    "cypress": "^8.7.0",
+    "prettier": "^2.4.1"
+  }
+}
