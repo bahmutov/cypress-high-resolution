@@ -1,17 +1,18 @@
 {
   "name": "cypress-high-resolution",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "A plugin to increase the video resolution for cypress run",
   "main": "src/index.js",
   "files": [
     "src"
   ],
   "scripts": {
-    "test": "DEBUG=cypress-high-resolution cypress run"
+    "test": "DEBUG=cypress-high-resolution cypress run",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bahmutov/cypress-high-resolution.git"
+    "url": "https://github.com/bahmutov/cypress-high-resolution.git"
   },
   "keywords": [
     "cypress-plugin",
@@ -25,7 +26,8 @@
   "homepage": "https://github.com/bahmutov/cypress-high-resolution#readme",
   "devDependencies": {
     "cypress": "^8.7.0",
-    "prettier": "^2.4.1"
+    "prettier": "^2.4.1",
+    "semantic-release": "^18.0.0"
   },
   "dependencies": {
     "debug": "^4.3.2"
