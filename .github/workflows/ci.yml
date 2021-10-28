@@ -17,6 +17,28 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+      - name: Run tests in 4k resolution 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          # we have already installed all dependencies above
+          install: false
+          record: true
+          group: '2. Resolution is 4k'
+          env: resolution=4k
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+      - name: Run tests in low resolution 🧪
+        uses: cypress-io/github-action@v2
+        with:
+          # we have already installed all dependencies above
+          install: false
+          record: true
+          group: '3. Resolution is 700x600'
+          env: resolution=700x600
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
       - name: Semantic Release 🚀
         uses: cycjimmy/semantic-release-action@v2
         with:
