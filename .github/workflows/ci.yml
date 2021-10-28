@@ -12,8 +12,10 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           record: true
-          tag: '1. Resolution is high'
+          group: '1. Resolution is high'
           env: resolution=high
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Semantic Release 🚀
         uses: cycjimmy/semantic-release-action@v2
