@@ -25,9 +25,9 @@
   },
   "homepage": "https://github.com/bahmutov/cypress-high-resolution#readme",
   "devDependencies": {
-    "cypress": "^10.1.0",
-    "prettier": "^2.4.1",
-    "semantic-release": "^18.0.0"
+    "cypress": "10.1.0",
+    "prettier": "2.4.1",
+    "semantic-release": "18.0.0"
   },
   "dependencies": {
     "debug": "^4.3.2"
