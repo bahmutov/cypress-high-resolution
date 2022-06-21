@@ -18,7 +18,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Run tests in 4k resolution 🧪
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
           # we have already installed all dependencies above
           install: false
@@ -31,7 +31,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Run tests in low resolution 🧪
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
           # we have already installed all dependencies above
           install: false
