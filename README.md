@@ -1,4 +1,4 @@
-# cypress-high-resolution [![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-10.1.0-brightgreen) [![cypress-high-resolution](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/e44x4z/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/e44x4z/runs) [![ci](https://github.com/bahmutov/cypress-high-resolution/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/bahmutov/cypress-high-resolution/actions/workflows/ci.yml)
+# cypress-high-resolution [![renovate-app badge][renovate-badge]][renovate-app] ![cypress version](https://img.shields.io/badge/cypress-10.2.0-brightgreen) [![cypress-high-resolution](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/e44x4z/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/e44x4z/runs) [![ci](https://github.com/bahmutov/cypress-high-resolution/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/bahmutov/cypress-high-resolution/actions/workflows/ci.yml)
 
 > A plugin to increase the video resolution for cypress run
 
