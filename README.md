@@ -27,7 +27,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // https://github.com/bahmutov/cypress-high-resolution
-      return require('cypress-high-resolutions')(on, config)
+      return require('cypress-high-resolution')(on, config)
     },
   },
 })
