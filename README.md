@@ -79,6 +79,23 @@ Or a high resolution
 }
 ```
 
+Use on CI for example via [Cypress GitHub Action](https://github.com/cypress-io/github-action)
+
+```yml
+- name: Run tests in high resolution 🧪
+  # https://github.com/cypress-io/github-action
+  uses: cypress-io/github-action@v7
+  with:
+    record: true
+    group: '1. Resolution is high'
+    expose: resolution=high
+    config: viewportWidth=1920,viewportHeight=1080
+    browser: chrome
+  env:
+    DEBUG: cypress-high-resolution
+    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+```
+
 **Tip:** when increasing the browser window size, it might make sense to increase the viewport used by the Cypress to use those pixels!
 
 ## Debugging
