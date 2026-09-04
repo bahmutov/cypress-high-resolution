@@ -56,7 +56,7 @@ jobs:
           record: true
           group: '3. Resolution is 700x600'
           expose: resolution=700x600
-          config: viewportWidth=700,viewportHeight=600
+          config: viewportWidth=600,viewportHeight=500
           browser: chrome
         env:
           DEBUG: cypress-high-resolution
