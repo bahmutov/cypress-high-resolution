@@ -2,14 +2,15 @@ name: ci
 on: push
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3
+        # https://github.com/actions/checkout
+        uses: actions/checkout@v7
 
       - name: Run tests 🧪
         # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v7
         with:
           record: true
           group: '1. Resolution is high'
@@ -18,7 +19,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Run tests in 4k resolution 🧪
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v7
         with:
           # we have already installed all dependencies above
           install: false
@@ -31,7 +32,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Run tests in low resolution 🧪
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v7
         with:
           # we have already installed all dependencies above
           install: false
@@ -42,9 +43,9 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Semantic Release 🚀
-        uses: cycjimmy/semantic-release-action@v2
+        # https://github.com/cycjimmy/semantic-release-action
+        uses: cycjimmy/semantic-release-action@v6
         with:
           branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
