@@ -8,6 +8,15 @@ const debug = require('debug')('cypress-high-resolution')
 function registerVideoResolution(on, config) {
   debug('Cypress config.env %o', config.env)
 
+  on('task', {
+    async getImageSize(imagePath) {
+      const { imageSizeFromFile } = require('image-size/fromFile')
+      const dimensions = await imageSizeFromFile(imagePath)
+      debug('image %s has dimensions %o', imagePath, dimensions)
+      return dimensions
+    },
+  })
+
   if (!config.env.resolution) {
     debug('there is no resolution change')
     return

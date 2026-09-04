@@ -3,6 +3,18 @@ on: push
 jobs:
   test:
     runs-on: ubuntu-latest
+
+    permissions:
+      # allow the release step to comment on
+      # issues, pull requests, and write to the repo
+      contents: write
+      issues: write
+      pull-requests: write
+      # Required for OIDC to let NPM registry know
+      # that this workflow is trusted
+      # https://glebbahmutov.com/blog/npm-publish-from-github/
+      id-token: write
+
     steps:
       - name: Checkout 🛎
         # https://github.com/actions/checkout

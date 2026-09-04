@@ -30,6 +30,7 @@
     "semantic-release": "25.0.9"
   },
   "dependencies": {
-    "debug": "^4.4.3"
+    "debug": "^4.4.3",
+    "image-size": "^2.0.2"
   }
 }
