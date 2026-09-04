@@ -26,7 +26,7 @@ jobs:
         with:
           record: true
           group: '1. Resolution is high'
-          env: resolution=high
+          expose: resolution=high
           config: viewportWidth=1920,viewportHeight=1080
           browser: chrome
         env:
@@ -40,7 +40,7 @@ jobs:
           install: false
           record: true
           group: '2. Resolution is 4k'
-          env: resolution=4k
+          expose: resolution=4k
           # increase the viewport to capture more details
           config: viewportWidth=3840,viewportHeight=2160
           browser: chrome
@@ -55,7 +55,7 @@ jobs:
           install: false
           record: true
           group: '3. Resolution is 700x600'
-          env: resolution=700x600
+          expose: resolution=700x600
           config: viewportWidth=700,viewportHeight=600
           browser: chrome
         env:

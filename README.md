@@ -15,7 +15,7 @@ $ npm i -D cypress-high-resolution
 $ yarn add -D cypress-high-resolution
 ```
 
-### Cypress v10+
+### Cypress v15+
 
 Add this plugin to your Cypress config file
 
@@ -33,31 +33,21 @@ module.exports = defineConfig({
 })
 ```
 
-### Cypress v9
-
-Add this plugin to your Cypress plugin file
-
-```js
-// cypress/plugins/index.js
-module.exports = (on, config) => {
-  // https://github.com/bahmutov/cypress-high-resolution
-  require('cypress-high-resolution')(on, config)
-}
-```
+**Note:** older Cypress versions no longer supported, please use an older plugin version.
 
 ## Use
 
-When using non-interactive mode `cypress run`, you can specify the browser window size using the [Cypress environment variables](https://on.cypress.io/environment-variables) which can be passed via system OS environment variables, via `cypress.json` config file, via `cypress.env.json` file, or via command line arguments. For example, here is how to specify the video resolution using the command line arguments:
+When using non-interactive mode `cypress run`, you can specify the browser window size using the [Cypress public environment variables](https://on.cypress.io/environment-variables) which can be passed via system OS environment variables, via `cypress.json` config file, via `cypress.env.json` file, or via command line arguments. For example, here is how to specify the video resolution using the command line arguments:
 
-```
+```bash
 # generate ultra-high resolution 3840x2160 videos
-$ npx cypress run --env resolution=4k
+$ npx cypress run --expose resolution=4k
 # generate videos 1200x1000
-$ npx cypress run --env resolution=1200x1000
+$ npx cypress run --expose resolution=1200x1000
 # alternative way: use an array
-$ npx cypress run --env resolution=[1200,1000]
+$ npx cypress run --expose resolution=[1200,1000]
 # generate high resolution video 1920x1080
-$ npx cypress run --env resolution=high
+$ npx cypress run --expose resolution=high
 ```
 
 Specifying the output resolution using the system OS variables
@@ -69,11 +59,11 @@ CYPRESS_resolution=high npx cypress run
 CYPRESS_resolution=600x300 npx cypress run
 ```
 
-You can set the video resolution in the `cypress.json` file
+You can set the video resolution in the Cypress config file
 
 ```json
 {
-  "env": {
+  "expose": {
     "resolution": [1280, 720]
   }
 }
@@ -83,10 +73,27 @@ Or a high resolution
 
 ```json
 {
-  "env": {
+  "expose": {
     "resolution": "high"
   }
 }
+```
+
+Use on CI for example via [Cypress GitHub Action](https://github.com/cypress-io/github-action)
+
+```yml
+- name: Run tests in high resolution 🧪
+  # https://github.com/cypress-io/github-action
+  uses: cypress-io/github-action@v7
+  with:
+    record: true
+    group: '1. Resolution is high'
+    expose: resolution=high
+    config: viewportWidth=1920,viewportHeight=1080
+    browser: chrome
+  env:
+    DEBUG: cypress-high-resolution
+    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 ```
 
 **Tip:** when increasing the browser window size, it might make sense to increase the viewport used by the Cypress to use those pixels!

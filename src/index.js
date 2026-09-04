@@ -8,8 +8,6 @@ const label = 'cypress-high-resolution'
  * @see https://www.cypress.io/blog/2021/03/01/generate-high-resolution-videos-and-screenshots/
  */
 function registerVideoResolution(on, config) {
-  debug('Cypress config.env %o', config.env)
-
   on('task', {
     async getImageSize(imagePath) {
       const { imageSizeFromFile } = require('image-size/fromFile')
@@ -19,31 +17,36 @@ function registerVideoResolution(on, config) {
     },
   })
 
-  if (!config.env.resolution) {
+  const userResolution =
+    config.expose.resolution || process.env.CYPRESS_resolution
+
+  if (!userResolution) {
     debug('there is no resolution change')
     return
   }
+
+  debug('user requested resolution %o', userResolution)
 
   // defaults
   let browserWindowWidth = 1280
   let browserWindowHeight = 720
 
-  if (Array.isArray(config.env.resolution)) {
-    if (config.env.resolution.length !== 2) {
+  if (Array.isArray(userResolution)) {
+    if (userResolution.length !== 2) {
       throw new Error('resolution must be an array of length 2')
     }
-    browserWindowWidth = config.env.resolution[0]
-    browserWindowHeight = config.env.resolution[1]
+    browserWindowWidth = userResolution[0]
+    browserWindowHeight = userResolution[1]
   } else {
-    if (typeof config.env.resolution !== 'string') {
+    if (typeof userResolution !== 'string') {
       console.error(
         'resolution parameter should be a string, was passed %o',
-        config.env.resolution,
+        userResolution,
       )
       return
     }
 
-    const wantedResolution = config.env.resolution.toLowerCase()
+    const wantedResolution = userResolution.toLowerCase()
     if (wantedResolution === '4k') {
       browserWindowWidth = 3840
       browserWindowHeight = 2160
@@ -52,7 +55,7 @@ function registerVideoResolution(on, config) {
       browserWindowHeight = 1080
     } else if (/^\d+x\d+$/.test(wantedResolution)) {
       // passing the custom resolution using "width x height"
-      const [width, height] = config.env.resolution.split('x')
+      const [width, height] = userResolution.split('x')
       browserWindowWidth = parseInt(width, 10)
       browserWindowHeight = parseInt(height, 10)
     }
@@ -68,16 +71,23 @@ function registerVideoResolution(on, config) {
     debug('before:browser:launch browser info %o', browser)
 
     if (browser.name === 'electron' && browser.isHeadless) {
+      debug(
+        'setting electron window size to %d x %d',
+        browserWindowWidth,
+        browserWindowHeight,
+      )
       launchOptions.preferences.width = browserWindowWidth
       launchOptions.preferences.height = browserWindowHeight
     } else if (browser.name === 'chrome' && browser.isHeadless) {
-      launchOptions.args.push(
-        `--window-size=${browserWindowWidth},${browserWindowHeight}`,
-      )
-      launchOptions.args.push('--force-device-scale-factor=1')
+      const wsArg = `--window-size=${browserWindowWidth},${browserWindowHeight}`
+      const dpArg = `--force-device-scale-factor=1`
+      debug('adding chrome args %o', [wsArg, dpArg])
+      launchOptions.args.push(wsArg, dpArg)
     } else if (browser.name === 'firefox' && browser.isHeadless) {
-      launchOptions.args.push(`--width=${browserWindowWidth}`)
-      launchOptions.args.push(`--height=${browserWindowHeight}`)
+      const wArg = `--width=${browserWindowWidth}`
+      const hArg = `--height=${browserWindowHeight}`
+      debug('adding firefox args %o', [wArg, hArg])
+      launchOptions.args.push(wArg, hArg)
     }
 
     return launchOptions
