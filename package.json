@@ -6,6 +6,7 @@
   "files": [
     "src"
   ],
+  "types": "src/support.d.ts",
   "scripts": {
     "test": "DEBUG=cypress-high-resolution cypress run",
     "semantic-release": "semantic-release"
