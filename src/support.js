@@ -13,6 +13,8 @@ Cypress.Commands.add('hideScrollbars', () => {
       }
       // create a new style element
       cy.document().then((doc) => {
+        doc.documentElement.style.overflow = 'hidden'
+
         const style = doc.createElement('style')
         style.id = 'hide-scrollbars'
         style.innerHTML = `
