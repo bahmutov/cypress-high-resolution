@@ -27,6 +27,7 @@ jobs:
           record: true
           group: '1. Resolution is high'
           env: resolution=high
+          browser: chrome
         env:
           DEBUG: cypress-high-resolution
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
