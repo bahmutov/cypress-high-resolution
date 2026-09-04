@@ -1,12 +1,16 @@
 /// <reference types="cypress" />
 
-it('works', () => {
+import '../../src/support'
+
+it('captures the entire runner (browser)', () => {
   const windowWidth = window.top.innerWidth
   const windowHeight = window.top.innerHeight
 
   cy.log(`browser window is: **${windowWidth} x ${windowHeight}**`)
   cy.visit('/')
   cy.get('#searchInput').should('be.visible')
+
+  cy.hideScrollbars()
 
   let screenshotImagePath
   cy.screenshot('wiki', {
@@ -34,4 +38,6 @@ it('works', () => {
         }
       })
     })
+
+  cy.showScrollbars()
 })

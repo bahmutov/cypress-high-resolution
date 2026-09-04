@@ -58,6 +58,13 @@ function registerVideoResolution(on, config) {
       const [width, height] = userResolution.split('x')
       browserWindowWidth = parseInt(width, 10)
       browserWindowHeight = parseInt(height, 10)
+    } else {
+      console.error(
+        'resolution parameter should be either "4k", "high" or "width x height", was passed %o',
+        userResolution,
+      )
+      console.error('leaving the default resolution')
+      return
     }
   }
   console.log(

@@ -27,7 +27,8 @@ jobs:
           record: true
           group: '1. Resolution is high'
           expose: resolution=high
-          config: viewportWidth=1920,viewportHeight=1080
+          # set viewport smaller to avoid scrollbars
+          config: viewportWidth=1820,viewportHeight=1000
           browser: chrome
         env:
           DEBUG: cypress-high-resolution
@@ -42,7 +43,8 @@ jobs:
           group: '2. Resolution is 4k'
           expose: resolution=4k
           # increase the viewport to capture more details
-          config: viewportWidth=3840,viewportHeight=2160
+          # set the viewport slightly smaller to avoid scrollbars
+          config: viewportWidth=3740,viewportHeight=2060
           browser: chrome
         env:
           DEBUG: cypress-high-resolution
@@ -56,7 +58,7 @@ jobs:
           record: true
           group: '3. Resolution is 700x600'
           expose: resolution=700x600
-          config: viewportWidth=700,viewportHeight=600
+          config: viewportWidth=600,viewportHeight=500
           browser: chrome
         env:
           DEBUG: cypress-high-resolution
