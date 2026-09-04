@@ -83,17 +83,17 @@ function registerVideoResolution(on, config) {
     return launchOptions
   })
 
-  // in the headless mode, modify the viewport to take up the entire browser window
   debug('is interactive mode? %o', config.isInteractive)
-  if (!config.isInteractive) {
-    config.viewportWidth = browserWindowWidth
-    config.viewportHeight = browserWindowHeight
-    debug(
-      'setting viewport to %d x %d',
-      config.viewportWidth,
-      config.viewportHeight,
-    )
-  }
+  // in the headless mode, modify the viewport to take up the entire browser window
+  // if (!config.isInteractive) {
+  //   config.viewportWidth = browserWindowWidth
+  //   config.viewportHeight = browserWindowHeight
+  //   debug(
+  //     'setting viewport to %d x %d',
+  //     config.viewportWidth,
+  //     config.viewportHeight,
+  //   )
+  // }
 
   return config
 }

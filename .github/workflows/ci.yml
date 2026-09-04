@@ -27,6 +27,7 @@ jobs:
           record: true
           group: '1. Resolution is high'
           env: resolution=high
+          config: viewportWidth=1920,viewportHeight=1080
           browser: chrome
         env:
           DEBUG: cypress-high-resolution
@@ -41,7 +42,7 @@ jobs:
           group: '2. Resolution is 4k'
           env: resolution=4k
           # increase the viewport to capture more details
-          config: viewportWidth=2000,viewportHeight=2000
+          config: viewportWidth=3840,viewportHeight=2160
           browser: chrome
         env:
           DEBUG: cypress-high-resolution
@@ -55,6 +56,7 @@ jobs:
           record: true
           group: '3. Resolution is 700x600'
           env: resolution=700x600
+          config: viewportWidth=700,viewportHeight=600
           browser: chrome
         env:
           DEBUG: cypress-high-resolution
