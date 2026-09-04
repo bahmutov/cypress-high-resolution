@@ -51,7 +51,7 @@ function registerVideoResolution(on, config) {
       browserWindowWidth = 1920
       browserWindowHeight = 1080
     } else if (/^\d+x\d+$/.test(wantedResolution)) {
-      // passing the custom resolution using "widthxheight"
+      // passing the custom resolution using "width x height"
       const [width, height] = config.env.resolution.split('x')
       browserWindowWidth = parseInt(width, 10)
       browserWindowHeight = parseInt(height, 10)
@@ -65,7 +65,7 @@ function registerVideoResolution(on, config) {
   )
 
   on('before:browser:launch', (browser, launchOptions) => {
-    debug('before:browser:launch %o', { browser, launchOptions })
+    debug('before:browser:launch browser info %o', browser)
 
     if (browser.name === 'electron' && browser.isHeadless) {
       launchOptions.preferences.width = browserWindowWidth
@@ -82,6 +82,20 @@ function registerVideoResolution(on, config) {
 
     return launchOptions
   })
+
+  // in the headless mode, modify the viewport to take up the entire browser window
+  debug('is interactive mode? %o', config.isInteractive)
+  if (!config.isInteractive) {
+    config.viewportWidth = browserWindowWidth
+    config.viewportHeight = browserWindowHeight
+    debug(
+      'setting viewport to %d x %d',
+      config.viewportWidth,
+      config.viewportHeight,
+    )
+  }
+
+  return config
 }
 
 module.exports = registerVideoResolution
