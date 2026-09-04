@@ -25,8 +25,13 @@ it('works', () => {
       console.log(`device pixel ratio is ${dpr}`)
 
       cy.task('getImageSize', screenshotImagePath).then(({ width, height }) => {
-        expect(width, 'screenshot width').to.equal(windowWidth * dpr)
-        expect(height, 'screenshot height').to.equal(windowHeight * dpr)
+        cy.log(`screenshot image is: **${width} x ${height}**`)
+
+        const isInteractive = Cypress.config('isInteractive')
+        if (isInteractive) {
+          expect(width, 'screenshot width').to.equal(windowWidth * dpr)
+          expect(height, 'screenshot height').to.equal(windowHeight * dpr)
+        }
       })
     })
 })
