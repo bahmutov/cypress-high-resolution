@@ -58,6 +58,8 @@ function registerVideoResolution(on, config) {
   debug('target window size %d x %d', browserWindowWidth, browserWindowHeight)
 
   on('before:browser:launch', (browser, launchOptions) => {
+    debug('before:browser:launch %o', { browser, launchOptions })
+
     if (browser.name === 'electron' && browser.isHeadless) {
       launchOptions.preferences.width = browserWindowWidth
       launchOptions.preferences.height = browserWindowHeight
