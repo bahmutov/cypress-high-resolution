@@ -32,8 +32,6 @@ jobs:
       - name: Run tests in 4k resolution 🧪
         uses: cypress-io/github-action@v7
         with:
-          # we have already installed all dependencies above
-          install: false
           record: true
           group: '2. Resolution is 4k'
           expose: resolution=4k
@@ -55,8 +53,6 @@ jobs:
       - name: Run tests in low resolution 🧪
         uses: cypress-io/github-action@v7
         with:
-          # we have already installed all dependencies above
-          install: false
           record: true
           group: '3. Resolution is 700x600'
           expose: resolution=700x600
