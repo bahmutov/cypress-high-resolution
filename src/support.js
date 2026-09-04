@@ -30,11 +30,7 @@ Cypress.Commands.add('hideScrollbars', () => {
       })
     })
 
-  // hide the scrollbars in the top Cypress window
-  const topWindow = window.top
-  if (topWindow) {
-    topWindow.document.documentElement.style.overflow = 'hidden'
-  }
+  // hide the scrollbars in the top Cypress window?
 })
 
 Cypress.Commands.add('showScrollbars', () => {
