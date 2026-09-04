@@ -1,20 +1,8 @@
 name: ci
 on: push
 jobs:
-  test:
+  test-high-resolution:
     runs-on: ubuntu-latest
-
-    permissions:
-      # allow the release step to comment on
-      # issues, pull requests, and write to the repo
-      contents: write
-      issues: write
-      pull-requests: write
-      # Required for OIDC to let NPM registry know
-      # that this workflow is trusted
-      # https://glebbahmutov.com/blog/npm-publish-from-github/
-      id-token: write
-
     steps:
       - name: Checkout 🛎
         # https://github.com/actions/checkout
@@ -34,6 +22,9 @@ jobs:
           DEBUG: cypress-high-resolution
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+  test-4k-resolution:
+    runs-on: ubuntu-latest
+    steps:
       - name: Run tests in 4k resolution 🧪
         uses: cypress-io/github-action@v7
         with:
@@ -50,6 +41,9 @@ jobs:
           DEBUG: cypress-high-resolution
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+  test-low-resolution:
+    runs-on: ubuntu-latest
+    steps:
       - name: Run tests in low resolution 🧪
         uses: cypress-io/github-action@v7
         with:
@@ -66,7 +60,7 @@ jobs:
 
   release:
     runs-on: ubuntu-latest
-    needs: test
+    needs: [test-high-resolution, test-4k-resolution, test-low-resolution]
 
     permissions:
       # allow the release step to comment on
