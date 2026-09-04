@@ -25,6 +25,10 @@ jobs:
   test-4k-resolution:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout 🛎
+        # https://github.com/actions/checkout
+        uses: actions/checkout@v7
+
       - name: Run tests in 4k resolution 🧪
         uses: cypress-io/github-action@v7
         with:
@@ -44,6 +48,10 @@ jobs:
   test-low-resolution:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout 🛎
+        # https://github.com/actions/checkout
+        uses: actions/checkout@v7
+
       - name: Run tests in low resolution 🧪
         uses: cypress-io/github-action@v7
         with:
