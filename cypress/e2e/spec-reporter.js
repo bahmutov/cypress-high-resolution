@@ -2,7 +2,7 @@
 
 import '../../src/support'
 
-it('works', () => {
+it('captures the entire runner (browser)', () => {
   const windowWidth = window.top.innerWidth
   const windowHeight = window.top.innerHeight
 
