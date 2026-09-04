@@ -19,11 +19,11 @@ Cypress.Commands.add('hideScrollbars', () => {
         style.id = 'hide-scrollbars'
         style.innerHTML = `
           ::-webkit-scrollbar {
-            display: none;
+            display: none !important;  /* Chrome, Safari, Opera */
           }
           body {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none !important;  /* IE and Edge */
+            scrollbar-width: none !important;  /* Firefox */
           }
         `
         doc.head.appendChild(style)
