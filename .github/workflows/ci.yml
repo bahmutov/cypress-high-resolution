@@ -42,6 +42,7 @@ jobs:
           env: resolution=4k
           # increase the viewport to capture more details
           config: viewportWidth=2000,viewportHeight=2000
+          browser: chrome
         env:
           DEBUG: cypress-high-resolution
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -54,6 +55,7 @@ jobs:
           record: true
           group: '3. Resolution is 700x600'
           env: resolution=700x600
+          browser: chrome
         env:
           DEBUG: cypress-high-resolution
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

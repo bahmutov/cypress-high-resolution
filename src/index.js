@@ -1,5 +1,7 @@
 const debug = require('debug')('cypress-high-resolution')
 
+const label = 'cypress-high-resolution'
+
 /**
  * Registers a hook to change the browser's window size.
  * @see https://on.cypress.io/browser-launch-api
@@ -55,7 +57,12 @@ function registerVideoResolution(on, config) {
       browserWindowHeight = parseInt(height, 10)
     }
   }
-  debug('target window size %d x %d', browserWindowWidth, browserWindowHeight)
+  console.log(
+    '%s: target window size %d x %d',
+    label,
+    browserWindowWidth,
+    browserWindowHeight,
+  )
 
   on('before:browser:launch', (browser, launchOptions) => {
     debug('before:browser:launch %o', { browser, launchOptions })
