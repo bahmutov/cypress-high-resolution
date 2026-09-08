@@ -63,6 +63,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
   release:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: [test-high-resolution, test-4k-resolution, test-low-resolution]
 
