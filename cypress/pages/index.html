@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application Menu</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        color: #1f2937;
+        background: #f8fafc;
+      }
+
+      .page {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        min-height: 100vh;
+      }
+
+      .menu {
+        padding: 24px;
+        background: #111827;
+        color: #ffffff;
+      }
+
+      .menu h1 {
+        margin: 0 0 24px;
+        font-size: 20px;
+      }
+
+      .menu nav {
+        display: grid;
+        gap: 12px;
+      }
+
+      .menu a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 1.5rem;
+        color: #e5e7eb;
+        text-decoration: none;
+      }
+
+      .menu svg {
+        width: 18px;
+        height: 18px;
+        flex: none;
+      }
+
+      .menu a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+      }
+
+      .content {
+        padding: 32px;
+        line-height: 1.6;
+      }
+
+      .content h2 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <aside class="menu" aria-label="Application menu">
+        <h1>Application</h1>
+        <nav>
+          <a href="#login">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M10 17v-3H3v-4h7V7l5 5-5 5Zm2 4v-2h7V5h-7V3h9v18h-9Z"
+              />
+            </svg>
+            <span>Login</span>
+          </a>
+          <a href="#sign-up">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4Zm-8 8v-2c0-2.67 5.33-4 8-4 .32 0 .7.02 1.09.06-.7.78-1.09 1.81-1.09 2.94 0 1.1.39 2.12 1.03 2.92L16 20H7Zm12-1v-3h-3v-2h3v-3h2v3h3v2h-3v3h-2Z"
+              />
+            </svg>
+            <span>Sign up</span>
+          </a>
+          <a href="#admin">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 2 4 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V5l-8-3Zm0 2.18 6 2.25V11c0 4.25-2.55 8.38-6 9.86C8.55 19.38 6 15.25 6 11V6.43l6-2.25Zm0 3.82a2.5 2.5 0 0 0-1 4.79V17h2v-4.21A2.5 2.5 0 0 0 12 8Z"
+              />
+            </svg>
+            <span>Admin</span>
+          </a>
+          <a href="#items">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M4 5h16v4H4V5Zm0 6h16v4H4v-4Zm0 6h16v4H4v-4Z"
+              />
+            </svg>
+            <span>Items</span>
+          </a>
+          <a href="#my-todos">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17ZM4 5h10v2H4V5Zm0 4h7v2H4V9Z"
+              />
+            </svg>
+            <span>My todos</span>
+          </a>
+        </nav>
+      </aside>
+
+      <section class="content">
+        <h2>Lorem ipsum</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+          posuere erat a ante venenatis dapibus posuere velit aliquet. Donec
+          ullamcorper nulla non metus auctor fringilla.
+        </p>
+        <p>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+          Cras mattis consectetur purus sit amet fermentum. Aenean lacinia
+          bibendum nulla sed consectetur.
+        </p>
+        <p>
+          Vestibulum id ligula porta felis euismod semper. Maecenas faucibus
+          mollis interdum. Curabitur blandit tempus porttitor.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
